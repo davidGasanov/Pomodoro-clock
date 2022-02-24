@@ -9,26 +9,12 @@ const [initialTime, setInitialTime] = useState(1500)
 const [pomodoro, setPomodoro] = useState(initialTime); 
 const [counterStatus, setCounterStatus] = useState(false);
 
+
 // snapshot of time when the counter is initialized/paused (used to avoid the 1 second delay)
 
 const [timeSnapshot, takeSnapshot] = useState(initialTime)
 
 
-useEffect(()=>{
-
-  console.log("pomodoro: " + pomodoro)
-
-  if(counterStatus){
-    if (pomodoro + 60 > initialTime){
-     let timeOut = setTimeout(()=>{
-      setPomodoro(pomodoro-1) 
-      console.log(timeOut);
-  },1000)
-}
-}
-
-
-},[pomodoro,counterStatus])
 
 
 useEffect (()=>{
@@ -47,17 +33,23 @@ const toggleCounter = () =>{
 
 }
 
-const addMinute = () =>{
 
-  setInitialTime(pomodoro+60);
-}
+// Time control 
+
+const subtractMinute = () =>{
+
+  counterStatus? setInitialTime(pomodoro-60) : setInitialTime(initialTime-60);
+  
+  }
+
 
   return (
     <div className="App">
 
-      <TimeDisplay pomodoro={counterStatus? pomodoro : timeSnapshot}/>
+      <TimeDisplay pomodoro={counterStatus? pomodoro : timeSnapshot} setPomodoro={setPomodoro} counterStatus={counterStatus}/>
       <button onClick={toggleCounter}>Toggle</button>
       <button onClick={addMinute}>Add 1 minute</button>
+
       
     </div>
   );
