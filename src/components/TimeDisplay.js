@@ -1,61 +1,70 @@
+// Hooks
+import { useEffect, useRef } from "react";
 
-import { useEffect } from "react";
+// Components
+import TimeControl from "./TimeControl";
 
-const TimeDisplay = ({modeStatus, pomodoro, setPomodoro, breakTime, setBreakTime, counterStatus}) => {
+//Icons
+import { FaPlay, FaPause, FaStop } from "react-icons/fa";
 
-  console.log(modeStatus, breakTime);
+const TimeDisplay = ({
+  toggleCounter,
+  resetTimer,
+  modeStatus,
+  pomodoro,
+  setPomodoro,
+  counterStatus,
+  initialTime,
+  defaultBreak,
+  defaultLongBreak,
+}) => {
+  useEffect(() => {
+    if (counterStatus && pomodoro > 0) {
+      var timeOut = setTimeout(() => {
+          console.log("Counter status: "+counterStatus);
+          setPomodoro(pomodoro - 1);
+          console.log(pomodoro);
+      }, 1000);
+    }
 
-useEffect(()=>{
+    return () =>{
+      clearTimeout(timeOut);
+    }
+  }, [pomodoro, counterStatus]);
 
-  if(counterStatus){
+  let minutes = Math.floor(pomodoro / 60);
+  let seconds = pomodoro % 60 === 0 ? "00" : pomodoro % 60;
 
-    if(modeStatus == "pomodoro"){
-      const timeOut = setTimeout(()=>{
-      setPomodoro(pomodoro-1) 
-  },1000)
-    clearTimeout(timeOut-1);
-} else if( modeStatus == "break"){
-
-  console.log("breakTimeOut fired");
-
-  const timeOut = setTimeout(()=>{
-    setBreakTime(breakTime-1) 
-},1000)
-    clearTimeout(timeOut-1);
-}
-
-
-
-}
-
-
-},[pomodoro, breakTime, counterStatus])
-
-let timeVar
-
-switch(modeStatus){
-
-  case "pomodoro":
-
-    timeVar = pomodoro;
-    break;
-
-  case "break":
-
-    timeVar = breakTime;
-    break;
-} 
-
-let minutes = Math.floor(timeVar / 60);
-let seconds = timeVar % 60 === 0? "00" : timeVar % 60;
-
-if (seconds < 10){ 
-  seconds = seconds.toString().padStart(2, '0');
-}
+  // Formats the seconds below 10
+  if (seconds < 10) {
+    seconds = seconds.toString().padStart(2, "0");
+  }
 
   return (
-    <div className="display-box">{minutes}:{seconds}</div>
-  )
-}
+    <div className="time-box">
+      <h1>{modeStatus}</h1>
 
-export default TimeDisplay
+      <div className="time-and-toggles">
+        <h1 className="display-box">
+          {minutes}:{seconds}
+        </h1>
+        <div className="toggles">
+          <button onClick={toggleCounter}>
+            {counterStatus ? <FaPause /> : <FaPlay />}{" "}
+          </button>
+          <button onClick={resetTimer}>
+            <FaStop />
+          </button>
+        </div>
+      </div>
+
+      <TimeControl
+        initialTime={initialTime}
+        defaultBreak={defaultBreak}
+        defaultLongBreak={defaultLongBreak}
+      />
+    </div>
+  );
+};
+
+export default TimeDisplay;
