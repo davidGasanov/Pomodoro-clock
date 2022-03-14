@@ -1,7 +1,18 @@
 .App {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+}
+
+.display-and-control {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+}
+
+.status-display {
+  text-align: center;
 }
 
 .App-logo {
@@ -39,28 +50,26 @@
   }
 }
 
-
-button{
+button {
   cursor: pointer;
   background: none;
   border: none;
 }
 
-
 /* --- <Time Display> --- */
 
-
-.time-box{
-  width: 300px;
-  height: auto;
+.clock-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color:beige
+  align-self: center;
+  width: 754px;
+  height: 567px;
+  background: #931222;
+  border-radius: 66px;
 }
 
-.time-and-toggles{
-  width: 300px;
+.time-and-toggles {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,41 +77,52 @@ button{
   text-align: center;
 }
 
-.toggles{
+.toggles {
   width: 100%;
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
 }
 
-
-.display-box{
+.time-display-box {
   font-size: 50px;
-  width: 70%;
-  background-color: white;
+  width: 60%;
+  background: linear-gradient(180deg, #9d2938 0%, #fefcfc 100%);
+  border-radius: 82px;
+  height: 20%;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.time-box{
+  border-radius: 82px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: white;
+  margin: 10px;
+
+}
+
 
 /* --- </Time Display> --- */
 
 
-
-
-
 /* --- <Time Control> --- */
 
-
-.time-card-div{
+.time-card-div {
   display: flex;
 }
 
-.time-card{
+.time-card {
   list-style-type: none;
   width: 25%;
   display: grid;
   grid-template-areas:
-  "h h h"
-  "u t d"
+    "h h h"
+    "u t d";
 }
 
-
 /* --- </Time Control> --- */
-

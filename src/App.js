@@ -63,8 +63,7 @@ function App() {
   };
 
   const subtractMinute = () => {
-    if(initialTime > 60)
-    setInitialTime(initialTime - 60);
+    if (initialTime > 60) setInitialTime(initialTime - 60);
   };
 
   const resetTimer = () => {
@@ -77,17 +76,28 @@ function App() {
 
   return (
     <div className="App">
-      <TimeDisplay
-        toggleCounter={toggleCounter}
-        resetTimer={resetTimer}
-        modeStatus={modeStatus}
-        pomodoro={pomodoro}
-        setPomodoro={setPomodoro}
-        counterStatus={counterStatus}
-        initialTime={initialTime}
-        defaultBreak={defaultBreak}
-        defaultLongBreak={defaultLongBreak}
-      />
+      <h1 className="status-display">{modeStatus}</h1>
+      <div className="display-and-control">
+      <TimeControl
+          initialTime={initialTime}
+          defaultBreak={defaultBreak}
+          defaultLongBreak={defaultLongBreak}
+        />
+        <TimeDisplay
+          toggleCounter={toggleCounter}
+          resetTimer={resetTimer}
+          modeStatus={modeStatus}
+          pomodoro={pomodoro}
+          setPomodoro={setPomodoro}
+          counterStatus={counterStatus}
+        />
+            <TimeControl
+          initialTime={initialTime}
+          defaultBreak={defaultBreak}
+          defaultLongBreak={defaultLongBreak}
+        />
+       
+      </div>
     </div>
   );
 }
