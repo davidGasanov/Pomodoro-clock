@@ -3,11 +3,13 @@ import { useEffect, useRef } from "react";
 
 // Components
 import TimeControl from "./TimeControl";
+import Button from "./utils/Button";
 
 //Icons
 import { FaPlay, FaPause, FaStop } from "react-icons/fa";
 
 const TimeDisplay = ({
+  colorPalette,
   toggleCounter,
   resetTimer,
   pomodoro,
@@ -44,12 +46,20 @@ const TimeDisplay = ({
         </span>
       </div>
       <div className="toggles">
-        <button onClick={toggleCounter}>
-          {counterStatus ? <FaPause /> : <FaPlay />}{" "}
-        </button>
-        <button onClick={resetTimer}>
-          <FaStop />
-        </button>
+        <Button
+          func={toggleCounter}
+          color={colorPalette}
+          size="button-large"
+          type="play"
+          resetTimer={resetTimer}
+        />
+        <Button
+          func={resetTimer}
+          color={colorPalette}
+          size="button-large"
+          type="stop"
+          resetTimer={resetTimer}
+        />
       </div>
     </div>
   );
