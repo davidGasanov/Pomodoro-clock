@@ -157,7 +157,17 @@ src: local('digital-7'), url(./fonts/digital-7.ttf) format('ttf');
   background: #808f85;
   color: white;
   border-radius: 50%;
-  filter: drop-shadow(0 -10px 0 #595959);
+  filter: drop-shadow(0 -9px 0 #595959);
+  transition: "all .5s ease",
+}
+
+.button-small {
+  width: 50px;
+  height: 50px;
+  background: #808f85;
+  color: white;
+  border-radius: 50%;
+  filter: drop-shadow(0 -3px 0 #595959);
   transition: "all .5s ease",
 }
 

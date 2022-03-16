@@ -67,12 +67,21 @@ function App() {
   };
 
   // Time control
-  const addMinute = () => {
-    setInitialTime(initialTime + 60);
+  const addMinute = (timeClass) => {
+    console.log(timeClass);
+    switch (timeClass) {
+      case "session":
+        setInitialTime(initialTime + 60);
+    }
   };
 
-  const subtractMinute = () => {
-    if (initialTime > 60) setInitialTime(initialTime - 60);
+  const subtractMinute = (timeClass) => {
+    if (initialTime > 60) {
+      switch (timeClass) {
+        case "session":
+          setInitialTime(initialTime - 60);
+      }
+    }
   };
 
   //
@@ -82,6 +91,9 @@ function App() {
       <h1 className="status-display">{modeStatus}</h1>
       <div className="display-and-control">
         <TimeControl
+          colorPalette={colorPalette}
+          addMinute={addMinute}
+          subtractMinute={subtractMinute}
           initialTime={initialTime}
           defaultBreak={defaultBreak}
           defaultLongBreak={defaultLongBreak}
@@ -96,6 +108,7 @@ function App() {
           counterStatus={counterStatus}
         />
         <TimeControl
+          colorPalette={colorPalette}
           addMinute={addMinute}
           subtractMinute={subtractMinute}
           initialTime={initialTime}

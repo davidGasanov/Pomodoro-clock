@@ -1,7 +1,9 @@
   import {FiChevronUp, FiChevronDown} from "react-icons/fi";
+  import Button from "./utils/Button";
 
 
-const TimeControl = ({initialTime, defaultBreak, defaultLongBreak, addMinute, subtractMinute}) => {
+
+const TimeControl = ({initialTime, defaultBreak, defaultLongBreak, addMinute, subtractMinute, colorPalette}) => {
   
   
   return (
@@ -11,21 +13,19 @@ const TimeControl = ({initialTime, defaultBreak, defaultLongBreak, addMinute, su
       <li className="time-card-title" style={{gridArea: "h"}}>Session length</li>
       <li className="time-card-item" style={{gridArea: "u"}}>
         <Button
-          func={toggleCounter}
+          func={()=>{addMinute('session')}}
           color={colorPalette}
           size="button-small"
           type="up"
-          resetTimer={resetTimer}
         />
         </li>
       <li className="time-card-item" style={{gridArea: "t"}}>{initialTime/60}</li>
       <li className="time-card-item" style={{gridArea: "d"}}>
       <Button
-          func={toggleCounter}
+          func={()=>{subtractMinute('session')}}
           color={colorPalette}
           size="button-small"
           type="down"
-          resetTimer={resetTimer}
         />  
       </li>
     </ul>
