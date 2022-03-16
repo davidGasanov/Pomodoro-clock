@@ -74,7 +74,7 @@ src: local('digital-7'), url(./fonts/digital-7.ttf) format('ttf');
   background: #931222;
   border-radius: 66px;
   filter: drop-shadow(0 -17px 0 #370922);
-  margin: 0 30px;
+  margin: 0 50px;
 }
 
 .time-and-toggles {
@@ -125,26 +125,40 @@ src: local('digital-7'), url(./fonts/digital-7.ttf) format('ttf');
 .time-card-div {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .time-card {
+  margin: 0;
   list-style-type: none;
-  width: 300px;
+  width: 230px;
   display: grid;
   grid-template-areas:
     "h h h"
+    "l l l"
     "u t d";
   font-size: 36px;
 }
 
 .time-card-title{
   text-align: center;
+  margin-bottom: 10px;
+  font-family: 'Raleway';
+
+}
+
+.divider{
+  height: 2px;
+  background-color: black;
+  margin-bottom: 20px;
 }
 
 .time-card-item{
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 50px;
+  font-family: 'Digital-7'
 }
 
 /* --- </Time Control> --- */

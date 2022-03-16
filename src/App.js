@@ -72,14 +72,28 @@ function App() {
     switch (timeClass) {
       case "session":
         setInitialTime(initialTime + 60);
+        break
+      case "break":
+        setDefaultBreak(defaultBreak + 60);
+        break
+      case "long break":
+        setDefaultLongBreak(defaultLongBreak + 60);
+        break
     }
   };
 
   const subtractMinute = (timeClass) => {
-    if (initialTime > 60) {
+    if (initialTime > 60 && defaultBreak > 60 && defaultLongBreak > 60) {
       switch (timeClass) {
         case "session":
           setInitialTime(initialTime - 60);
+          break
+        case "break":
+          setDefaultBreak(defaultBreak - 60);
+          break
+        case "long break":
+          setDefaultLongBreak(defaultLongBreak - 60);
+          break
       }
     }
   };

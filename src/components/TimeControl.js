@@ -10,7 +10,8 @@ const TimeControl = ({initialTime, defaultBreak, defaultLongBreak, addMinute, su
     <div className="time-card-div">
       
     <ul  className="time-card">
-      <li className="time-card-title" style={{gridArea: "h"}}>Session length</li>
+      <li className="time-card-title" style={{gridArea: "h"}}>Session</li>
+      <span style={{gridArea: "l"}} className="divider"/>
       <li className="time-card-item" style={{gridArea: "u"}}>
         <Button
           func={()=>{addMinute('session')}}
@@ -19,7 +20,7 @@ const TimeControl = ({initialTime, defaultBreak, defaultLongBreak, addMinute, su
           type="up"
         />
         </li>
-      <li className="time-card-item" style={{gridArea: "t"}}>{initialTime/60}</li>
+      <li className="time-card-item" style={{gridArea: "t"}}>{initialTime/60}:00</li>
       <li className="time-card-item" style={{gridArea: "d"}}>
       <Button
           func={()=>{subtractMinute('session')}}
@@ -30,16 +31,46 @@ const TimeControl = ({initialTime, defaultBreak, defaultLongBreak, addMinute, su
       </li>
     </ul>
     <ul  className="time-card">
-      <li style={{gridArea: "h"}}>Break length</li>
-      <li style={{gridArea: "u"}}><button><FiChevronUp/></button></li>
-      <li style={{gridArea: "t"}}>{defaultBreak/60}</li>
-      <li style={{gridArea: "d"}}><button><FiChevronDown/></button></li>
+      <li className="time-card-title" style={{gridArea: "h"}}>Break</li>
+      <span style={{gridArea: "l"}} className="divider"/>
+      <li className="time-card-item" style={{gridArea: "u"}}>
+        <Button
+          func={()=>{addMinute('break')}}
+          color={colorPalette}
+          size="button-small"
+          type="up"
+        />
+        </li>
+      <li className="time-card-item" style={{gridArea: "t"}}>{defaultBreak/60}:00</li>
+      <li className="time-card-item" style={{gridArea: "d"}}>
+      <Button
+          func={()=>{subtractMinute('break')}}
+          color={colorPalette}
+          size="button-small"
+          type="down"
+        />  
+      </li>
     </ul>
     <ul  className="time-card">
-      <li style={{gridArea: "h"}}>Long break length</li>
-      <li style={{gridArea: "u"}}><button><FiChevronUp/></button></li>
-      <li style={{gridArea: "t"}}>{defaultLongBreak/60}</li>
-      <li style={{gridArea: "d"}}><button><FiChevronDown/></button></li>
+      <li className="time-card-title" style={{gridArea: "h"}}>Long break</li>
+      <span style={{gridArea: "l"}} className="divider"/>
+      <li className="time-card-item" style={{gridArea: "u"}}>
+        <Button
+          func={()=>{addMinute('long break')}}
+          color={colorPalette}
+          size="button-small"
+          type="up"
+        />
+        </li>
+      <li className="time-card-item" style={{gridArea: "t"}}>{defaultLongBreak/60}:00</li>
+      <li className="time-card-item" style={{gridArea: "d"}}>
+      <Button
+          func={()=>{subtractMinute('long break')}}
+          color={colorPalette}
+          size="button-small"
+          type="down"
+        />  
+      </li>
     </ul>
 
     </div>
