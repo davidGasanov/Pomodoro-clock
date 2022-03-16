@@ -18,7 +18,6 @@ function App() {
   // There are 3 mode statuses: Work session, Break time and Long break. The default is Work session.
   const [modeStatus, changeMode] = useState("Work session");
 
-
   // Color palette according to the mode status
   const [colorPalette, setColorPalette] = useState("red");
 
@@ -57,9 +56,7 @@ function App() {
     setPomodoro(initialTime);
   }, [initialTime]);
 
-
   const toggleCounter = () => {
-    
     setCounterStatus(!counterStatus);
   };
 
@@ -99,6 +96,8 @@ function App() {
           counterStatus={counterStatus}
         />
         <TimeControl
+          addMinute={addMinute}
+          subtractMinute={subtractMinute}
           initialTime={initialTime}
           defaultBreak={defaultBreak}
           defaultLongBreak={defaultLongBreak}

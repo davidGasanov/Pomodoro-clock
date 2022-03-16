@@ -1,7 +1,7 @@
 import {FiChevronUp, FiChevronDown} from "react-icons/fi";
 
 
-const TimeControl = ({initialTime, defaultBreak, defaultLongBreak}) => {
+const TimeControl = ({initialTime, defaultBreak, defaultLongBreak, addMinute, subtractMinute}) => {
   
   
   return (
