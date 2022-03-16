@@ -141,6 +141,12 @@ src: local('digital-7'), url(./fonts/digital-7.ttf) format('ttf');
   text-align: center;
 }
 
+.time-card-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* --- </Time Control> --- */
 
 /* -- <Button> -- */
