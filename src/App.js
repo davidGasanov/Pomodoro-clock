@@ -82,7 +82,7 @@ function App() {
         break;
       case "break":
         if (defaultBreak < 3600) {
-          setDefaultBreak(defaultBreak - 60);
+          setDefaultBreak(defaultBreak + 60);
         }
         break;
       case "long break":

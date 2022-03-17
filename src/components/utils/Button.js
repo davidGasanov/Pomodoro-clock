@@ -1,15 +1,25 @@
 import React from "react";
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated } from "react-spring";
+import { useState } from "react";
 
 //Icons
 import { FaPlay, FaStop } from "react-icons/fa";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 
-
-
 const Button = ({ color, type, size, func }) => {
+  const styles = useSpring({ background: "#808f85" });
 
-  const styles = useSpring({background: '#808f85'})
+  const [clicked, setClicked] = useState(false);
+
+  const clickedFunc = () => {
+    func();
+    if (type === "play") {
+      setClicked(!clicked)
+    } else {
+      setClicked(true);
+      setTimeout(()=>{setClicked(false)},200)
+    }
+  };
 
   const buttonType = (type) => {
     switch (type) {
@@ -25,11 +35,17 @@ const Button = ({ color, type, size, func }) => {
   };
 
   return (
-    <div>
-      <animated.button style={styles} type={type} className={size} onClick={func}>
+    
+      <animated.button
+        clicked={clicked.toString()}
+        style={styles}
+        type={type}
+        className={size}
+        onClick={clickedFunc}
+      >
         {buttonType(type)}
       </animated.button>
-    </div>
+   
   );
 };
 
