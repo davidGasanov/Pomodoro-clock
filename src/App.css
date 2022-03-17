@@ -157,6 +157,10 @@
   font-family: "digital";
 }
 
+.time-card-item[style="grid-area: t;"]{
+  width: 110px;
+}
+
 /* --- </Time Control> --- */
 
 /* -- <Button> -- */
@@ -214,10 +218,12 @@ button[type="play"] > svg {
   display: flex;
   flex-direction: column;
   justify-content: center;  
+  width: 300px;
 }
 
 .finished-pomos-title{
   font-size: 36px;
+  font-weight: normal;
 }
 
 .finished-pomos-count{

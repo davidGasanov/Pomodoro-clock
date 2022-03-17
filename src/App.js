@@ -9,9 +9,9 @@ import TimeControl from "./components/TimeControl";
 import Finishedpomos from "./components/Finishedpomos";
 
 function App() {
-  const [initialTime, setInitialTime] = useState(1);
-  const [defaultBreak, setDefaultBreak] = useState(1);
-  const [defaultLongBreak, setDefaultLongBreak] = useState(1);
+  const [initialTime, setInitialTime] = useState(1500);
+  const [defaultBreak, setDefaultBreak] = useState(300);
+  const [defaultLongBreak, setDefaultLongBreak] = useState(900);
 
   const [pomodoro, setPomodoro] = useState(initialTime);
   const [counterStatus, setCounterStatus] = useState(false);
@@ -76,13 +76,19 @@ function App() {
     console.log(timeClass);
     switch (timeClass) {
       case "session":
-        setInitialTime(initialTime + 60);
+        if (initialTime < 3600) {
+          setInitialTime(initialTime + 60);
+        }
         break;
       case "break":
-        setDefaultBreak(defaultBreak + 60);
+        if (defaultBreak < 3600) {
+          setDefaultBreak(defaultBreak - 60);
+        }
         break;
       case "long break":
-        setDefaultLongBreak(defaultLongBreak + 60);
+        if (defaultBreak < 3600) {
+          setDefaultLongBreak(defaultLongBreak + 60);
+        }
         break;
     }
   };
