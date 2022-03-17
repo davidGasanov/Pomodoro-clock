@@ -19,9 +19,7 @@ const TimeDisplay = ({
   useEffect(() => {
     if (counterStatus && pomodoro > 0) {
       var timeOut = setTimeout(() => {
-        console.log("Counter status: " + counterStatus);
         setPomodoro(pomodoro - 1);
-        console.log(pomodoro);
       }, 1000);
     }
 

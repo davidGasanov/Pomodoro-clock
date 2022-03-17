@@ -9,9 +9,9 @@ import TimeControl from "./components/TimeControl";
 import Finishedpomos from "./components/Finishedpomos";
 
 function App() {
-  const [initialTime, setInitialTime] = useState(60);
-  const [defaultBreak, setDefaultBreak] = useState(60);
-  const [defaultLongBreak, setDefaultLongBreak] = useState(60);
+  const [initialTime, setInitialTime] = useState(1);
+  const [defaultBreak, setDefaultBreak] = useState(1);
+  const [defaultLongBreak, setDefaultLongBreak] = useState(1);
 
   const [pomodoro, setPomodoro] = useState(initialTime);
   const [counterStatus, setCounterStatus] = useState(false);
@@ -29,7 +29,21 @@ function App() {
   useEffect(() => {
     if (pomodoro === 0 && modeStatus === "Work session") {
       setCompletedPomodoros(completedPomodoros + 1);
-      if (completedPomodoros % 4 === 0) {
+    }
+    if (
+      (pomodoro === 0 && modeStatus === "Break time") ||
+      (pomodoro === 0 && modeStatus === "Long break")
+    ) {
+      setTimeout(() => {
+        setPomodoro(initialTime);
+        changeMode("Work session");
+      }, 1000);
+    }
+  }, [pomodoro]);
+
+  useEffect(() => {
+    if (pomodoro === 0 && modeStatus === "Work session") {
+      if (completedPomodoros && completedPomodoros % 4 === 0) {
         setTimeout(() => {
           changeMode("Long break");
           setPomodoro(defaultLongBreak);
@@ -41,17 +55,7 @@ function App() {
         }, 1000);
       }
     }
-
-    if (
-      (pomodoro === 0 && modeStatus === "Break time") ||
-      (pomodoro === 0 && modeStatus === "Long break")
-    ) {
-      setTimeout(() => {
-        setPomodoro(initialTime);
-        changeMode("Work session");
-      }, 1000);
-    }
-  }, [pomodoro]);
+  }, [completedPomodoros]);
 
   useEffect(() => {
     setPomodoro(initialTime);
@@ -127,9 +131,7 @@ function App() {
           setPomodoro={setPomodoro}
           counterStatus={counterStatus}
         />
-        <Finishedpomos 
-        completedPomodoros={completedPomodoros}        
-        />
+        <Finishedpomos completedPomodoros={completedPomodoros} />
       </div>
     </div>
   );
