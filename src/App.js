@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 //components
 import TimeDisplay from "./components/TimeDisplay";
 import TimeControl from "./components/TimeControl";
+import Finishedpomos from "./components/Finishedpomos";
 
 function App() {
   const [initialTime, setInitialTime] = useState(60);
@@ -22,7 +23,7 @@ function App() {
   const [colorPalette, setColorPalette] = useState("red");
 
   // Amount of completed pomodoros
-  const [completedPomodoros, setCompletedPomodoros] = useState(1);
+  const [completedPomodoros, setCompletedPomodoros] = useState(0);
 
   // useEffect for mode switching
   useEffect(() => {
@@ -72,29 +73,34 @@ function App() {
     switch (timeClass) {
       case "session":
         setInitialTime(initialTime + 60);
-        break
+        break;
       case "break":
         setDefaultBreak(defaultBreak + 60);
-        break
+        break;
       case "long break":
         setDefaultLongBreak(defaultLongBreak + 60);
-        break
+        break;
     }
   };
 
   const subtractMinute = (timeClass) => {
-    if (initialTime > 60 && defaultBreak > 60 && defaultLongBreak > 60) {
-      switch (timeClass) {
-        case "session":
+    console.log("subtractminute fired");
+    switch (timeClass) {
+      case "session":
+        if (initialTime > 60) {
           setInitialTime(initialTime - 60);
-          break
-        case "break":
+        }
+        break;
+      case "break":
+        if (defaultBreak > 60) {
           setDefaultBreak(defaultBreak - 60);
-          break
-        case "long break":
+        }
+        break;
+      case "long break":
+        if (defaultLongBreak > 60) {
           setDefaultLongBreak(defaultLongBreak - 60);
-          break
-      }
+          break;
+        }
     }
   };
 
@@ -121,13 +127,8 @@ function App() {
           setPomodoro={setPomodoro}
           counterStatus={counterStatus}
         />
-        <TimeControl
-          colorPalette={colorPalette}
-          addMinute={addMinute}
-          subtractMinute={subtractMinute}
-          initialTime={initialTime}
-          defaultBreak={defaultBreak}
-          defaultLongBreak={defaultLongBreak}
+        <Finishedpomos 
+        completedPomodoros={completedPomodoros}        
         />
       </div>
     </div>

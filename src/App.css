@@ -1,10 +1,7 @@
-@font-face{
-font-family: 'digital';
-src: local('digital-7'), url(./fonts/digital-7.ttf) format('ttf');  
+@font-face {
+  font-family: "digital";
+  src: local("digital-7"), url("./fonts/digital-7.ttf");
 }
-
-
-
 
 .App {
   min-height: 100vh;
@@ -21,7 +18,7 @@ src: local('digital-7'), url(./fonts/digital-7.ttf) format('ttf');
 
 .status-display {
   text-align: center;
-  font-family: 'Raleway';
+  font-family: "Raleway";
   font-size: 72px;
   margin: 0;
 }
@@ -114,7 +111,7 @@ src: local('digital-7'), url(./fonts/digital-7.ttf) format('ttf');
   background-color: white;
   color: green;
   margin: 10px;
-  font-family: 'digital';
+  font-family: "digital";
   font-size: 120px;
 }
 
@@ -140,25 +137,24 @@ src: local('digital-7'), url(./fonts/digital-7.ttf) format('ttf');
   font-size: 36px;
 }
 
-.time-card-title{
+.time-card-title, .finished-pomos-title {
   text-align: center;
   margin-bottom: 10px;
-  font-family: 'Raleway';
-
+  font-family: "Raleway";
 }
 
-.divider{
+.divider {
   height: 2px;
   background-color: black;
   margin-bottom: 20px;
 }
 
-.time-card-item{
+.time-card-item, .finished-pomos-count {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 50px;
-  font-family: 'Digital-7'
+  font-family: "digital";
 }
 
 /* --- </Time Control> --- */
@@ -172,7 +168,7 @@ src: local('digital-7'), url(./fonts/digital-7.ttf) format('ttf');
   color: white;
   border-radius: 50%;
   filter: drop-shadow(0 -9px 0 #595959);
-  transition: "all .5s ease",
+  transition: "all .5s ease";
 }
 
 .button-small {
@@ -182,10 +178,10 @@ src: local('digital-7'), url(./fonts/digital-7.ttf) format('ttf');
   color: white;
   border-radius: 50%;
   filter: drop-shadow(0 -3px 0 #595959);
-  transition: "all .5s ease",
+  transition: "all .5s ease";
 }
 
-.yellow{
+.yellow {
   background: yellow;
 }
 
@@ -198,10 +194,36 @@ button {
   align-items: center;
 }
 
+button > svg {
+  overflow: visible;
+}
+
 /* this is used to correct the misalignment of this particular icon */
 
-button[type="play"] > svg{
+button[type="play"] > svg {
   margin-left: 15px;
 }
 
 /* -- </Button> -- */
+
+
+/* -- <FinishedPomos> -- */
+
+
+.finished-pomos-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+}
+
+.finished-pomos-title{
+  font-size: 36px;
+}
+
+.finished-pomos-count{
+  margin: 0;
+}
+
+
+/* -- </FinishedPomos> -- */
+

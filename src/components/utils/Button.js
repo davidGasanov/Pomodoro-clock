@@ -18,9 +18,9 @@ const Button = ({ color, type, size, func }) => {
       case "stop":
         return <FaStop size={90} />;
       case "up":
-        return <FiChevronUp size={60} />;
+        return <FiChevronUp size={45} />;
       case "down":
-        return <FiChevronDown size={70} />;
+        return <FiChevronDown size={45} />;
     }
   };
 
