@@ -8,12 +8,13 @@ import { Howl, Howler } from "howler";
 import TimeDisplay from "./components/TimeDisplay";
 import TimeControl from "./components/TimeControl";
 import Finishedpomos from "./components/Finishedpomos";
+import Pomodoroinfo from "./components/Pomodoroinfo";
 
 // Audio
 import Timeout from "./audio/time-out.mp3";
 
 function App() {
-  const [initialTime, setInitialTime] = useState(1);
+  const [initialTime, setInitialTime] = useState(1500);
   const [defaultBreak, setDefaultBreak] = useState(300);
   const [defaultLongBreak, setDefaultLongBreak] = useState(900);
 
@@ -29,37 +30,32 @@ function App() {
   // Amount of completed pomodoros
   const [completedPomodoros, setCompletedPomodoros] = useState(0);
 
+  let sound = new Howl({ src: [Timeout] });
+
   // useEffect for mode switching
   useEffect(() => {
-    if (pomodoro === 0 && modeStatus === "Work session") {
-      setCompletedPomodoros(completedPomodoros + 1);
-    }
-    if (
-      (pomodoro === 0 && modeStatus === "Break time") ||
-      (pomodoro === 0 && modeStatus === "Long break")
-    ) {
-      setTimeout(() => {
-        setPomodoro(initialTime);
-        changeMode("Work session");
-      }, 1000);
+    if (pomodoro === 0) {
+      sound.play();
+      if (modeStatus === "Work session") {
+        setCompletedPomodoros(completedPomodoros + 1);
+      } else if (modeStatus === "Break time" || modeStatus === "Long break") {
+        setTimeout(() => {
+          setPomodoro(initialTime);
+          changeMode("Work session");
+        }, 1000);
+      }
     }
   }, [pomodoro]);
-
-  // Timeout sound
-
-  let sound = new Howl({ src: [Timeout] });
 
   useEffect(() => {
     if (pomodoro === 0 && modeStatus === "Work session") {
       if (completedPomodoros && completedPomodoros % 4 === 0) {
         setTimeout(() => {
-          sound.play();
           changeMode("Long break");
           setPomodoro(defaultLongBreak);
         }, 1000);
       } else {
         setTimeout(() => {
-          sound.play();
           changeMode("Break time");
           setPomodoro(defaultBreak);
         }, 1000);
@@ -125,32 +121,36 @@ function App() {
     }
   };
 
-  //
-
   return (
     <div className="App">
-      <h1 className="status-display">{modeStatus}</h1>
-      <div className="display-and-control">
-        <TimeControl
-          counterStatus={counterStatus}
-          colorPalette={colorPalette}
-          addMinute={addMinute}
-          subtractMinute={subtractMinute}
-          initialTime={initialTime}
-          defaultBreak={defaultBreak}
-          defaultLongBreak={defaultLongBreak}
-        />
-        <TimeDisplay
-          colorPalette={colorPalette}
-          toggleCounter={toggleCounter}
-          resetTimer={resetTimer}
-          modeStatus={modeStatus}
-          pomodoro={pomodoro}
-          setPomodoro={setPomodoro}
-          counterStatus={counterStatus}
-        />
-        <Finishedpomos completedPomodoros={completedPomodoros} />
+
+      <div className="clock-and-controls">
+        <h1 className="status-display">{modeStatus}</h1>
+        <div className="display-and-control">
+          <TimeControl
+            counterStatus={counterStatus}
+            colorPalette={colorPalette}
+            addMinute={addMinute}
+            subtractMinute={subtractMinute}
+            initialTime={initialTime}
+            defaultBreak={defaultBreak}
+            defaultLongBreak={defaultLongBreak}
+          />
+          <TimeDisplay
+            colorPalette={colorPalette}
+            toggleCounter={toggleCounter}
+            resetTimer={resetTimer}
+            modeStatus={modeStatus}
+            pomodoro={pomodoro}
+            setPomodoro={setPomodoro}
+            counterStatus={counterStatus}
+          />
+          <Finishedpomos completedPomodoros={completedPomodoros} />
+        </div>
       </div>
+      
+      <Pomodoroinfo/>
+
     </div>
   );
 }

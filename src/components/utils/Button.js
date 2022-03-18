@@ -33,8 +33,10 @@ const Button = ({ color, type, size, func, counterStatus }) => {
       sound.play();
       setTimeout(() => {
         setClicked(false);
+        if(type=="stop"){
         sound = new Howl({ src: [Buttonoff] });
         sound.play();
+      }
       }, 200);
     }
   };
