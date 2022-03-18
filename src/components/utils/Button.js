@@ -1,6 +1,6 @@
 import React from "react";
 import { useSpring, animated } from "react-spring";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Howl, Howler } from "howler";
 
 // Sounds
@@ -12,7 +12,7 @@ import Buttonon from "../../audio/button-on.mp3";
 import { FaPlay, FaStop } from "react-icons/fa";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 
-const Button = ({ color, type, size, func }) => {
+const Button = ({ color, type, size, func, counterStatus }) => {
   const styles = useSpring({ background: "#808f85" });
 
   const [clicked, setClicked] = useState(false);
@@ -25,6 +25,7 @@ const Button = ({ color, type, size, func }) => {
       setClicked(!clicked);
       sound = new Howl({ src: clicked ? [Buttonoff] : [Buttonon] });
       sound.play();
+
     } else {
       setClicked(true);
       sound = new Howl({ src: [Buttonon] });
@@ -36,6 +37,11 @@ const Button = ({ color, type, size, func }) => {
       }, 200);
     }
   };
+
+  useEffect(()=>{if(!counterStatus){
+    setTimeout(()=>{setClicked(false);},200)
+
+  }},[counterStatus])
 
   const buttonType = (type) => {
     switch (type) {

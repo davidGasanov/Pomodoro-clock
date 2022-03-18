@@ -8,7 +8,6 @@ import TimeDisplay from "./components/TimeDisplay";
 import TimeControl from "./components/TimeControl";
 import Finishedpomos from "./components/Finishedpomos";
 
-
 function App() {
   const [initialTime, setInitialTime] = useState(1500);
   const [defaultBreak, setDefaultBreak] = useState(300);
@@ -64,13 +63,9 @@ function App() {
 
   const toggleCounter = () => {
     setCounterStatus(!counterStatus);
-
-
-    
   };
 
   const resetTimer = () => {
-    
     setCounterStatus(false);
     setPomodoro(initialTime);
     console.log("resetPomo fired");
@@ -126,6 +121,7 @@ function App() {
       <h1 className="status-display">{modeStatus}</h1>
       <div className="display-and-control">
         <TimeControl
+          counterStatus={counterStatus}
           colorPalette={colorPalette}
           addMinute={addMinute}
           subtractMinute={subtractMinute}

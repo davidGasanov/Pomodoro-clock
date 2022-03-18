@@ -50,6 +50,7 @@ const TimeDisplay = ({
           size="button-large"
           type="play"
           resetTimer={resetTimer}
+          counterStatus={counterStatus}
         />
         <Button
           func={resetTimer}
@@ -57,6 +58,7 @@ const TimeDisplay = ({
           size="button-large"
           type="stop"
           resetTimer={resetTimer}
+          counterStatus={counterStatus}
         />
       </div>
     </div>

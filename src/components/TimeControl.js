@@ -3,7 +3,7 @@
 
 
 
-const TimeControl = ({initialTime, defaultBreak, defaultLongBreak, addMinute, subtractMinute, colorPalette}) => {
+const TimeControl = ({counterStatus, initialTime, defaultBreak, defaultLongBreak, addMinute, subtractMinute, colorPalette}) => {
   
   
   return (
@@ -18,6 +18,7 @@ const TimeControl = ({initialTime, defaultBreak, defaultLongBreak, addMinute, su
           color={colorPalette}
           size="button-small"
           type="up"
+          counterStatus={counterStatus}
         />
         </li>
       <li className="time-card-item" style={{gridArea: "t"}}>{initialTime/60}:00</li>
@@ -27,6 +28,7 @@ const TimeControl = ({initialTime, defaultBreak, defaultLongBreak, addMinute, su
           color={colorPalette}
           size="button-small"
           type="down"
+          counterStatus={counterStatus}
         />  
       </li>
     </ul>
@@ -39,6 +41,7 @@ const TimeControl = ({initialTime, defaultBreak, defaultLongBreak, addMinute, su
           color={colorPalette}
           size="button-small"
           type="up"
+          counterStatus={counterStatus}
         />
         </li>
       <li className="time-card-item" style={{gridArea: "t"}}>{defaultBreak/60}:00</li>
@@ -48,6 +51,7 @@ const TimeControl = ({initialTime, defaultBreak, defaultLongBreak, addMinute, su
           color={colorPalette}
           size="button-small"
           type="down"
+          counterStatus={counterStatus}
         />  
       </li>
     </ul>
@@ -60,6 +64,7 @@ const TimeControl = ({initialTime, defaultBreak, defaultLongBreak, addMinute, su
           color={colorPalette}
           size="button-small"
           type="up"
+          counterStatus={counterStatus}
         />
         </li>
       <li className="time-card-item" style={{gridArea: "t"}}>{defaultLongBreak/60}:00</li>
@@ -69,6 +74,7 @@ const TimeControl = ({initialTime, defaultBreak, defaultLongBreak, addMinute, su
           color={colorPalette}
           size="button-small"
           type="down"
+          counterStatus={counterStatus}
         />  
       </li>
     </ul>
