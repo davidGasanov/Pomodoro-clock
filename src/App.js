@@ -1,15 +1,19 @@
 import "./App.css";
 
-//hooks
+// Hooks
 import { useState, useEffect } from "react";
+import { Howl, Howler } from "howler";
 
-//components
+// Components
 import TimeDisplay from "./components/TimeDisplay";
 import TimeControl from "./components/TimeControl";
 import Finishedpomos from "./components/Finishedpomos";
 
+// Audio
+import Timeout from "./audio/time-out.mp3";
+
 function App() {
-  const [initialTime, setInitialTime] = useState(1500);
+  const [initialTime, setInitialTime] = useState(1);
   const [defaultBreak, setDefaultBreak] = useState(300);
   const [defaultLongBreak, setDefaultLongBreak] = useState(900);
 
@@ -41,17 +45,23 @@ function App() {
     }
   }, [pomodoro]);
 
+  // Timeout sound
+
+  let sound = new Howl({ src: [Timeout] });
+
   useEffect(() => {
     if (pomodoro === 0 && modeStatus === "Work session") {
       if (completedPomodoros && completedPomodoros % 4 === 0) {
         setTimeout(() => {
+          sound.play();
           changeMode("Long break");
           setPomodoro(defaultLongBreak);
         }, 1000);
       } else {
         setTimeout(() => {
+          sound.play();
           changeMode("Break time");
-          setPomodoro(defaultLongBreak);
+          setPomodoro(defaultBreak);
         }, 1000);
       }
     }
@@ -68,7 +78,8 @@ function App() {
   const resetTimer = () => {
     setCounterStatus(false);
     setPomodoro(initialTime);
-    console.log("resetPomo fired");
+    setCompletedPomodoros(0);
+    changeMode("Work session");
   };
 
   // Time control
