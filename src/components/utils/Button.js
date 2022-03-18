@@ -1,8 +1,14 @@
 import React from "react";
 import { useSpring, animated } from "react-spring";
 import { useState } from "react";
+import { Howl, Howler } from "howler";
 
-//Icons
+// Sounds
+
+import Buttonoff from "../../audio/button-off.mp3";
+import Buttonon from "../../audio/button-on.mp3";
+
+// Icons
 import { FaPlay, FaStop } from "react-icons/fa";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 
@@ -12,12 +18,22 @@ const Button = ({ color, type, size, func }) => {
   const [clicked, setClicked] = useState(false);
 
   const clickedFunc = () => {
+    Howler.volume(0.4, 0);
     func();
+    let sound;
     if (type === "play") {
-      setClicked(!clicked)
+      setClicked(!clicked);
+      sound = new Howl({ src: clicked ? [Buttonoff] : [Buttonon] });
+      sound.play();
     } else {
       setClicked(true);
-      setTimeout(()=>{setClicked(false)},200)
+      sound = new Howl({ src: [Buttonon] });
+      sound.play();
+      setTimeout(() => {
+        setClicked(false);
+        sound = new Howl({ src: [Buttonoff] });
+        sound.play();
+      }, 200);
     }
   };
 
@@ -35,17 +51,15 @@ const Button = ({ color, type, size, func }) => {
   };
 
   return (
-    
-      <animated.button
-        clicked={clicked.toString()}
-        style={styles}
-        type={type}
-        className={size}
-        onClick={clickedFunc}
-      >
-        {buttonType(type)}
-      </animated.button>
-   
+    <animated.button
+      clicked={clicked.toString()}
+      style={styles}
+      type={type}
+      className={size}
+      onClick={clickedFunc}
+    >
+      {buttonType(type)}
+    </animated.button>
   );
 };
 
