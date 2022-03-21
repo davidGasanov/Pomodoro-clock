@@ -64,7 +64,14 @@ const Pomodoroinfo = () => {
           and improvement.
         </p>
       </div>
-      <Tomato size='110' color='white'/>
+      <Tomato size='110' color='white' id={1} />
+      <Tomato size='220' color='white' id={2} stroke={true} strokeSize={1}/>
+      <Tomato size='710' color='white' id={3} />
+
+      <div className="credits">
+        <h2 className="credits-title">Website design and development by:</h2>
+        <p>David Gasanov</p>
+      </div>
 
     </div>
   );
