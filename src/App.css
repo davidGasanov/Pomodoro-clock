@@ -8,8 +8,9 @@
   src: local("CENSCBK"), url("./fonts/CENSCBK.TTF");
 }
 
-h1, h2{
-  font-family: 'century';
+h1,
+h2 {
+  font-family: "century";
 }
 
 .clock-and-controls {
@@ -135,7 +136,6 @@ h1, h2{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  
 }
 
 .time-card {
@@ -326,11 +326,10 @@ button[type="play"] > svg {
 }
 
 .credits {
-  margin: 100px
+  margin: 100px;
 }
 
 .credits-title {
-
   font-weight: 700;
   margin: 0;
 }
@@ -341,3 +340,56 @@ button[type="play"] > svg {
 }
 
 /* -- </Pomodoroinfo> -- */
+
+/* --- Media queries --- */
+
+@media (max-width: 1200px) {
+  .status-display {
+    font-size: 54px;
+  }
+
+  .clock-box {
+    width: 597px;
+    height: 449px;
+  }
+
+  .time-card-div, .time-card{
+    width: 150px;
+  }
+
+  .time-card-title{
+    width: inherit;
+    font-size: 24px;
+  }
+
+  .time-card-item[style="grid-area: t;"]{
+    font-size: 30px;
+    width: auto;
+  }
+
+  .time-card span{
+    width: 150px;
+  }
+
+  .button-small{
+    width: 35px;
+    height: 35px;
+  }
+
+  .button-small svg{
+    width: 30px;
+    height: 30px;
+  }
+
+  .button-large{
+    width: 146px;
+    height: 146px;
+  }
+
+  .button-large svg{
+    width: 80px;
+    height: 80px;
+  }
+
+
+}
