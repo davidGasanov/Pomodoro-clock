@@ -1,4 +1,7 @@
 import React from "react";
+import pomosmall from '../imgs/pomo-1.svg'
+import Tomato from "./imgs/Tomato";
+
 
 const Pomodoroinfo = () => {
   return (
@@ -61,6 +64,8 @@ const Pomodoroinfo = () => {
           and improvement.
         </p>
       </div>
+      <Tomato size='110' color='white'/>
+
     </div>
   );
 };

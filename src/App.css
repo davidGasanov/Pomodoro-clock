@@ -253,10 +253,11 @@ button[type="play"] > svg {
   align-items: center;
   background: #931222;
   color: white;
+  position: relative;
 }
 
 .pomoinfo-section {
-  width: 1300px;
+  width: 1000px;
   font-family: "Raleway";
   margin-top: 50px;
 }
@@ -277,8 +278,8 @@ font-size: 26px;
 line-height: 50px;
 }
 
-
-
-
+.tomato{
+  fill: green;
+}
 
 /* -- </Pomodoroinfo> -- */
