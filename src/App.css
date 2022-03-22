@@ -23,8 +23,9 @@ h2 {
 .display-and-control {
   height: 600px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   margin-bottom: 50px;
+  gap: 30px;
 }
 
 .status-display {
@@ -208,6 +209,7 @@ h2 {
 }
 
 .button-small[clicked="true"] {
+  box-sizing: border-box;
   margin-bottom: 5px;
   filter: drop-shadow(0 -1px 0 #383838);
 }
@@ -343,7 +345,107 @@ button[type="play"] > svg {
 
 /* --- Media queries --- */
 
-@media (max-width: 1200px) {
+/* Medium */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .display-and-control {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: auto;
+    margin: 0;
+    gap: 60px;
+  }
+
+  .status-display {
+    font-size: 44px;
+    padding-bottom: 10px;
+  }
+
+  .clock-box {
+    width: 70%;
+    height: 450px;
+    order: -1;
+  }
+
+  .clock-and-controls {
+    min-height: 90vh;
+  }
+
+  .time-card-div {
+    width: 90%;
+    justify-content: space-around;
+    flex-direction: row;
+  }
+
+  .time-card {
+    width: 30%;
+    justify-items: center;
+  }
+
+  .time-card-title {
+    font-size: 34px;
+  }
+
+  .time-card-item[style="grid-area: t;"] {
+    font-size: 38px;
+    width: 80px;
+  }
+
+  .time-card span {
+    width: 150px;
+  }
+
+  .time-card-item {
+    height: 40px;
+  }
+
+  .finished-pomos-container {
+    width: auto;
+    height: auto;
+    margin-bottom: 30px;
+  }
+
+  .finished-pomos-title {
+    font-size: 26px;
+    margin-top: 0;
+  }
+
+  .divider {
+    width: 300px;
+    margin-bottom: 5px;
+  }
+
+  .finished-pomos-count {
+    font-size: 40px;
+  }
+
+  .time-box {
+    font-size: 93px;
+  }
+
+  .button-small {
+    width: 35px;
+    height: 35px;
+  }
+
+  .button-small svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .button-large {
+    width: 140px;
+    height: 140px;
+  }
+
+  .button-large svg {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
   .status-display {
     font-size: 54px;
   }
@@ -353,43 +455,42 @@ button[type="play"] > svg {
     height: 449px;
   }
 
-  .time-card-div, .time-card{
+  .time-card-div,
+  .time-card {
     width: 150px;
   }
 
-  .time-card-title{
+  .time-card-title {
     width: inherit;
     font-size: 24px;
   }
 
-  .time-card-item[style="grid-area: t;"]{
+  .time-card-item[style="grid-area: t;"] {
     font-size: 30px;
     width: auto;
   }
 
-  .time-card span{
+  .time-card span {
     width: 150px;
   }
 
-  .button-small{
+  .button-small {
     width: 35px;
     height: 35px;
   }
 
-  .button-small svg{
+  .button-small svg {
     width: 30px;
     height: 30px;
   }
 
-  .button-large{
+  .button-large {
     width: 146px;
     height: 146px;
   }
 
-  .button-large svg{
+  .button-large svg {
     width: 80px;
     height: 80px;
   }
-
-
 }

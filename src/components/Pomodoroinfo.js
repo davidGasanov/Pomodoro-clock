@@ -1,6 +1,7 @@
 import React from "react";
 import pomosmall from '../imgs/pomo-1.svg'
 import Tomato from "./imgs/Tomato";
+import { useMediaQuery } from "react-responsive";
 
 
 const Pomodoroinfo = () => {

@@ -1,12 +1,10 @@
 // Hooks
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
-// Components
-import TimeControl from "./TimeControl";
+
+
 import Button from "./utils/Button";
 
-//Icons
-import { FaPlay, FaPause, FaStop } from "react-icons/fa";
 
 const TimeDisplay = ({
   colorPalette,
@@ -22,6 +20,7 @@ const TimeDisplay = ({
         setPomodoro(pomodoro - 1);
       }, 1000);
     }
+
 
     return () => {
       clearTimeout(timeOut);
