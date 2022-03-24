@@ -358,9 +358,352 @@ button[type="play"] > svg {
 
 /* --- Media queries --- */
 
+/* Extra small */
+
+@media (max-width: 480px) {
+  .display-and-control {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: auto;
+    margin: 0;
+    gap: 40px;
+  }
+
+  .status-display {
+    font-size: 30px;
+    padding-bottom: 10px;
+  }
+
+  .clock-box {
+    min-width: 290px;
+    width: 80%;
+    height: 270px;
+    order: -1;
+    margin: 0;
+  }
+
+  .clock-and-controls {
+    min-height: 100vh;
+  }
+
+  .time-card-div {
+    width: 90%;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .time-card {
+    width: 100%;
+    justify-items: center;
+  }
+
+  .time-card-title {
+    font-size: 20px;
+    margin-bottom: 2px;
+  }
+
+  .time-card-indicator {
+    font-size: 23px;
+    width: auto;
+  }
+
+  .time-card-item {
+    height: 40px;
+  }
+
+  .time-toggles{
+    width: 40%;
+    height: 30px;
+  }
+
+  .finished-pomos-container {
+    width: auto;
+    height: auto;
+    margin-bottom: 30px;
+  }
+
+  .finished-pomos-title {
+    font-size: 19px;
+    margin: 5px 0px;
+  }
+
+  .divider{
+    height: 1px;
+    margin-bottom: 2px;
+  }
+
+  .time-card > .divider {
+    width: 60%;
+  }
+
+  .finished-pomos-count {
+    font-size: 28px;
+  }
+
+
+  .time-box {
+    font-size: 56px;
+  }
+
+  .button-small {
+    width: 23px;
+    height: 23px;
+    filter: drop-shadow(0 -2px 0 #595959);
+  }
+
+  .button-small svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .button-small[clicked="true"] {
+    box-sizing: border-box;
+    margin-bottom: 2px;
+    filter: drop-shadow(0 -1px 0 #383838);
+  }
+
+  button[type="play"] > svg {
+    margin-left: 5px;
+  }
+  
+
+  .button-large {
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 -6px 0 #595959);
+  }
+
+  .button-large svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .button-large[clicked="true"] {
+    position: relative;
+    bottom: 3px;
+    filter: drop-shadow(0 -3px 0 #383838);
+  }
+  
+
+  .pomoinfo-container{
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .pomoinfo-title {
+    font-size: 19px;
+    text-align: center;
+    line-height: 27px;
+  }
+
+  .pomoinfo-section,
+  .credits{
+    min-width: 290px;
+    width: 90%;
+  }
+
+  .pomoinfo-section{
+    margin: 0;
+  }
+
+
+  .tomato-container-1, .tomato-container-2, .tomato-container-4{
+    display: none;
+  }
+
+  .pomoinfo-paragraph,
+  .pomoinfo-step {
+    font-size: 11px;
+    line-height: 18px;
+  }
+
+  .pomoinfo-steps{
+    padding-left: 20px;
+  }
+
+  .credits-title{
+    font-size: 15px;
+  }
+
+  .credits p{
+    font-size: 12px;
+  }
+
+}
+
+
+/* Small */ 
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .display-and-control {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: auto;
+    margin: 0;
+    gap: 60px;
+  }
+
+  .status-display {
+    font-size: 44px;
+    padding-bottom: 10px;
+  }
+
+  .clock-box {
+    min-width: 400px;
+    width: 70%;
+    height: 350px;
+    order: -1;
+    margin: 0;
+  }
+
+  .clock-and-controls {
+    min-height: 90vh;
+  }
+
+  .time-card-div {
+    width: 90%;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .time-card {
+    width: 100%;
+    justify-items: center;
+  }
+
+  .time-card-title {
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+
+  .time-card-indicator {
+    font-size: 30px;
+    width: auto;
+  }
+
+  .time-card-item {
+    height: 40px;
+  }
+
+  .time-toggles{
+    width: 40%;
+  }
+
+  .finished-pomos-container {
+    width: auto;
+    height: auto;
+    margin-bottom: 30px;
+  }
+
+  .finished-pomos-title {
+    font-size: 23px;
+    margin-top: 0;
+  }
+
+  .divider{
+    margin-bottom: 5px;
+    height: 1px;
+  }
+
+  .time-card > .divider {
+    width: 60%;
+  }
+
+  .finished-pomos-count {
+    font-size: 36px;
+  }
+
+
+  .time-box {
+    font-size: 63px;
+  }
+
+  .button-small {
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow(0 -2px 0 #595959);
+  }
+
+  .button-small svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  button[type="play"] > svg {
+    margin-left: 5px;
+  }
+  
+
+  .button-large {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(0 -6px 0 #595959);
+  }
+
+  .button-large svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .button-large[clicked="true"] {
+    position: relative;
+    bottom: 3px;
+    filter: drop-shadow(0 -3px 0 #383838);
+  }
+  
+
+  .pomoinfo-container{
+    gap: 20px;
+  }
+
+  .pomoinfo-title {
+    font-size: 26px;
+    text-align: center;
+    line-height: 27px;
+  }
+
+  .pomoinfo-section,
+  .credits{
+    min-width: 420px;
+    width: 80%;
+  }
+
+  .pomoinfo-section{
+    margin: 0;
+  }
+
+
+  .tomato-container-1, .tomato-container-2, .tomato-container-4{
+    display: none;
+  }
+
+  .pomoinfo-paragraph,
+  .pomoinfo-step {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .pomoinfo-steps{
+    padding-left: 20px;
+  }
+
+  .credits-title{
+    font-size: 20px;
+  }
+
+  .credits p{
+    font-size: 16px;
+  }
+
+}
+
+
+
 /* Medium */
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .display-and-control {
     flex-direction: column;
     align-items: center;
@@ -459,8 +802,7 @@ button[type="play"] > svg {
   }
 
   .pomoinfo-section,
-  .credits,
-  .pomoinfo-steps {
+  .credits {
     width: 90%;
   }
 
@@ -485,6 +827,11 @@ button[type="play"] > svg {
     font-size: 20px;
   }
 }
+
+
+
+
+/* Large */
 
 @media (min-width: 1025px) and (max-width: 1200px) {
   .display-and-control {
@@ -566,8 +913,7 @@ button[type="play"] > svg {
   }
 
   .pomoinfo-section,
-  .credits,
-  .pomoinfo-steps {
+  .credits{
     width: 90%;
   }
 

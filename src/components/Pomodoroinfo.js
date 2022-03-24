@@ -59,7 +59,7 @@ const Pomodoroinfo = () => {
       </div>
 
       <div className="pomoinfo-section">
-        <h2 className="pomoinfo-title">Additional suggestions:</h2>
+        <h2 className="pomoinfo-title">The process</h2>
         <p className="pomoinfo-paragraph">
         {"  "}The stages of planning, tracking, recording, processing and
           visualizing are fundamental to the technique. In the planning
