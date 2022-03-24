@@ -5,6 +5,11 @@ import { useMediaQuery } from "react-responsive";
 
 
 const Pomodoroinfo = () => {
+
+  const isMediumScreen = useMediaQuery({query: '(max-width:1024px'});
+
+  console.log(isMediumScreen);
+
   return (
     <div className="pomoinfo-container">
       <div className="pomoinfo-section">
@@ -66,7 +71,8 @@ const Pomodoroinfo = () => {
         </p>
       </div>
       <Tomato size='110' color='white' id={1} />
-      <Tomato size='220' color='white' id={2} stroke={true} strokeSize={1}/>
+      <Tomato size={isMediumScreen? '120' : '220'} color='white' id={2} stroke={true} strokeSize={1}/>
+      <Tomato size='110' color='white' id={4} />
       <Tomato size='710' color='white' id={3} />
 
       <div className="credits">
