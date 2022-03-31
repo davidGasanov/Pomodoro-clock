@@ -26,6 +26,7 @@ h2 {
   justify-content: space-evenly;
   margin-bottom: 50px;
   gap: 30px;
+  padding: 50px;
 }
 
 .status-display {
@@ -123,7 +124,6 @@ h2 {
   justify-content: center;
   align-items: center;
   background-color: white;
-  color: green;
   margin: 10px;
   font-family: "digital";
   font-size: 120px;
@@ -358,7 +358,7 @@ button[type="play"] > svg {
 
 /* --- Media queries --- */
 
-/* Extra small */
+/* Extra small ------------------------------------------------------------------------------------*/
 
 @media (max-width: 480px) {
   .display-and-control {
@@ -368,6 +368,7 @@ button[type="play"] > svg {
     height: auto;
     margin: 0;
     gap: 40px;
+    padding: 0;
   }
 
   .status-display {
@@ -533,7 +534,7 @@ button[type="play"] > svg {
 }
 
 
-/* Small */ 
+/* Small ---------------------------------------------------------------*/ 
 
 @media (min-width: 481px) and (max-width: 768px) {
   .display-and-control {
@@ -543,6 +544,7 @@ button[type="play"] > svg {
     height: auto;
     margin: 0;
     gap: 60px;
+    padding: 0;
   }
 
   .status-display {
@@ -701,7 +703,7 @@ button[type="play"] > svg {
 
 
 
-/* Medium */
+/* Medium ---------------------------------------------------------------*/
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .display-and-control {
@@ -711,6 +713,7 @@ button[type="play"] > svg {
     height: auto;
     margin: 0;
     gap: 60px;
+    padding: 0;
   }
 
   .status-display {
@@ -831,13 +834,14 @@ button[type="play"] > svg {
 
 
 
-/* Large */
+/* Large ---------------------------------------------------------------*/
 
-@media (min-width: 1025px) and (max-width: 1200px) {
+@media (min-width: 1025px) and (max-width: 1366px) {
+
   .display-and-control {
     align-items: center;
-    justify-content: space-evenly;
     height: auto;
+    padding: 0;
   }
 
   .status-display {
@@ -846,7 +850,8 @@ button[type="play"] > svg {
   }
 
   .clock-box {
-    width: 497px;
+    width: 50%;
+    max-width: 580px;
     height: 400px;
     margin: 10px;
   }
