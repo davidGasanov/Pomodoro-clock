@@ -169,8 +169,8 @@ h2 {
 .divider {
   height: 2px;
   background-color: black;
-  margin-bottom: 20px;
   width: 100%;
+  margin-bottom: 10px;
 }
 
 .time-card-item,
@@ -442,7 +442,7 @@ button[type="play"] > svg {
 
   .divider{
     height: 1px;
-    margin-bottom: 2px;
+
   }
 
   .time-card > .divider {
@@ -616,7 +616,7 @@ button[type="play"] > svg {
   }
 
   .divider{
-    margin-bottom: 5px;
+
     height: 1px;
   }
 
@@ -633,16 +633,16 @@ button[type="play"] > svg {
     font-size: 63px;
   }
 
-  .button-small {
+  /* .button-small {
     width: 30px;
     height: 30px;
     filter: drop-shadow(0 -2px 0 #595959);
-  }
+  } */
 
-  .button-small svg {
+  /* .button-small svg {
     width: 23px;
     height: 23px;
-  }
+  } */
 
   button[type="play"] > svg {
     margin-left: 5px;
@@ -650,14 +650,14 @@ button[type="play"] > svg {
   
 
   .button-large {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     filter: drop-shadow(0 -6px 0 #595959);
   }
 
   .button-large svg {
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 55px;
   }
 
   .button-large[clicked="true"] {
@@ -779,9 +779,7 @@ button[type="play"] > svg {
     margin-top: 0;
   }
 
-  .divider {
-    margin-bottom: 5px;
-  }
+
 
   .finished-pomos-count {
     font-size: 46px;
@@ -873,9 +871,6 @@ button[type="play"] > svg {
     width: 150px;
   }
 
-  .divider {
-    margin-bottom: 10px;
-  }
 
   .finished-pomos-title {
     font-size: 30px;
