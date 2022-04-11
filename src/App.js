@@ -16,7 +16,7 @@ import Timeout from "./audio/time-out.mp3";
 function App() {
   const [initialTime, setInitialTime] = useState(1500);
   const [defaultBreak, setDefaultBreak] = useState(300);
-  const [defaultLongBreak, setDefaultLongBreak] = useState(900);
+  const [defaultLongBreak, setDefaultLongBreak] = useState(1200);
 
   const [pomodoro, setPomodoro] = useState(initialTime);
   const [counterStatus, setCounterStatus] = useState(false);
@@ -24,7 +24,7 @@ function App() {
   // There are 3 mode statuses: Work session, Break time and Long break. The default is Work session.
   const [modeStatus, changeMode] = useState("Work session");
 
-  // Color palette according to the mode status
+  // Color palette according to the mode status (Feature not implemented)
   const [colorPalette, setColorPalette] = useState("red");
 
   // Amount of completed pomodoros
@@ -74,56 +74,56 @@ function App() {
   const resetTimer = () => {
     setCounterStatus(false);
     setPomodoro(initialTime);
-    setCompletedPomodoros(0);
     changeMode("Work session");
   };
 
   // Time control
   const addMinute = (timeClass) => {
-    console.log(timeClass);
-    switch (timeClass) {
-      case "session":
-        if (initialTime < 3600) {
-          setInitialTime(initialTime + 60);
-        }
-        break;
-      case "break":
-        if (defaultBreak < 3600) {
-          setDefaultBreak(defaultBreak + 60);
-        }
-        break;
-      case "long break":
-        if (defaultBreak < 3600) {
-          setDefaultLongBreak(defaultLongBreak + 60);
-        }
-        break;
+    if (!counterStatus) {
+      switch (timeClass) {
+        case "session":
+          if (initialTime < 3600) {
+            setInitialTime(initialTime + 60);
+          }
+          break;
+        case "break":
+          if (defaultBreak < 3600) {
+            setDefaultBreak(defaultBreak + 60);
+          }
+          break;
+        case "long break":
+          if (defaultBreak < 3600) {
+            setDefaultLongBreak(defaultLongBreak + 60);
+          }
+          break;
+      }
     }
   };
 
   const subtractMinute = (timeClass) => {
-    console.log("subtractminute fired");
-    switch (timeClass) {
-      case "session":
-        if (initialTime > 60) {
-          setInitialTime(initialTime - 60);
-        }
-        break;
-      case "break":
-        if (defaultBreak > 60) {
-          setDefaultBreak(defaultBreak - 60);
-        }
-        break;
-      case "long break":
-        if (defaultLongBreak > 60) {
-          setDefaultLongBreak(defaultLongBreak - 60);
+    if (!counterStatus) {
+      switch (timeClass) {
+        case "session":
+          if (initialTime > 60) {
+            setInitialTime(initialTime - 60);
+          }
           break;
-        }
+        case "break":
+          if (defaultBreak > 60) {
+            setDefaultBreak(defaultBreak - 60);
+          }
+          break;
+        case "long break":
+          if (defaultLongBreak > 60) {
+            setDefaultLongBreak(defaultLongBreak - 60);
+            break;
+          }
+      }
     }
   };
 
   return (
     <div className="App">
-
       <div className="clock-and-controls">
         <h1 className="status-display">{modeStatus}</h1>
         <div className="display-and-control">
@@ -148,9 +148,8 @@ function App() {
           <Finishedpomos completedPomodoros={completedPomodoros} />
         </div>
       </div>
-      
-      <Pomodoroinfo/>
 
+      <Pomodoroinfo />
     </div>
   );
 }

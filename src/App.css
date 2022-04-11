@@ -160,6 +160,7 @@ h2 {
 
 .time-toggles {
   width: 100%;
+  min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -309,6 +310,7 @@ button[type="play"] > svg {
   position: absolute;
   top: 100px;
   left: 150px;
+  
 }
 
 .pomoinfo-step {
@@ -326,7 +328,7 @@ button[type="play"] > svg {
   position: absolute;
   bottom: -180px;
   left: -180px;
-  z-index: 2;
+  z-index: 1;
   opacity: 20%;
 }
 
@@ -349,10 +351,19 @@ button[type="play"] > svg {
   margin: 0;
 }
 
-.credits p {
+.credits a {
+  position: relative;
+  z-index: 2;
   margin-top: 6px;
   font-size: 20px;
+  text-decoration: none;
+  color: inherit;
 }
+
+.credits a:hover {
+  cursor: pointer;
+}
+
 
 /* -- </Pomodoroinfo> -- */
 
@@ -527,7 +538,7 @@ button[type="play"] > svg {
     font-size: 15px;
   }
 
-  .credits p{
+  .credits a{
     font-size: 12px;
   }
 
@@ -695,7 +706,7 @@ button[type="play"] > svg {
     font-size: 20px;
   }
 
-  .credits p{
+  .credits a{
     font-size: 16px;
   }
 
