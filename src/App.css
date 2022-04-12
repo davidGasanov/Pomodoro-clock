@@ -309,7 +309,7 @@ button[type="play"] > svg {
   transform: scaleX(-1);
   position: absolute;
   top: 100px;
-  left: 150px;
+  left: clamp(10px, 3.5%, 100px);
   
 }
 
